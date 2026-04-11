@@ -4,61 +4,109 @@
    de estos estilos para mejorar el diseño.
    ============================================= */
 
-/* --- ESTILOS GLOBALES --- */
+/* --- RESET --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* --- BODY --- */
 body {
   font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
   background-color: #0f0f13;
   color: #ffffff;
+
   min-height: 100vh;
+
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-/* --- TARJETA PRINCIPAL --- */
-.card {
+/* --- CONTENEDOR PRINCIPAL --- */
+.container {
   width: 90%;
   max-width: 400px;
+  padding: 2rem;
   text-align: center;
-  padding: 40px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* --- FOTO DE PERFIL --- */
+/* --- FOTO --- */
 .avatar {
   border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
 }
 
 /* --- NOMBRE --- */
 .name {
-  font-size: 28px;
-  margin-top: 16px;
+  font-size: 2rem;
+  margin-top: 1rem;
 }
 
 /* --- BIO --- */
 .bio {
-  font-size: 15px;
+  font-size: 1rem;
   color: #a0a0b0;
-  margin-top: 8px;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
 }
 
-/* --- CONTENEDOR DE ENLACES --- */
+/* --- LINKS --- */
 .links {
-  margin-top: 24px;
+  width: 100%;
 }
 
-/* --- CADA ENLACE --- */
+/* --- BOTONES --- */
 .link {
   display: block;
-  padding: 14px;
-  margin-top: 12px;
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+
   border: 1px solid #2a2a38;
-  color: #ffffff;
+  border-radius: 0.5rem;
+
   text-decoration: none;
-  font-size: 15px;
+  color: #ffffff;
+
+  font-size: 1rem;
+}
+
+/* ========================================
+   RESPONSIVE: TABLET Y DESKTOP (768px+)
+   ======================================== */
+@media (min-width: 768px) {
+
+  .container {
+    max-width: 500px;
+  }
+
+  .name {
+    font-size: 2.5rem;
+  }
+
+  .avatar {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .link {
+    transition: transform 0.2s ease;
+  }
+
+  .link:hover {
+    transform: scale(1.05);
+  }
+
+  .bio {
+    max-width: 400px;
+  }
 }
