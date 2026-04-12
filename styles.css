@@ -1,112 +1,206 @@
-/* =============================================
-   MYLINKS - ESTILOS BASE
-   En las próximas clases construirás encima
-   de estos estilos para mejorar el diseño.
-   ============================================= */
-
-/* --- RESET --- */
-* {
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-/* --- BODY --- */
+html, body {
+  min-height: 100%;
+}
+
 body {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  background-color: #0f0f13;
-  color: #ffffff;
-
-  min-height: 100vh;
-
+  font-family: 'Inter', sans-serif;
+  background-color: #FF69B4;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* --- CONTENEDOR PRINCIPAL --- */
-.container {
-  width: 90%;
-  max-width: 400px;
-  padding: 2rem;
-  text-align: center;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 18px,
+    rgba(255, 255, 255, 0.13) 18px,
+    rgba(255, 255, 255, 0.13) 20px
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* --- FOTO --- */
+.card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border: 2.5px solid #111111;
+  box-shadow: 7px 7px 0 #111111;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.card-top {
+  padding: 2rem 1.75rem 1.75rem;
+}
+
 .avatar {
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  width: 6rem;
-  height: 6rem;
+  border: 2.5px solid #111111;
+  overflow: hidden;
+  margin-bottom: 1.35rem;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* --- NOMBRE --- */
-.name {
-  font-size: 2rem;
-  margin-top: 1rem;
-}
-
-/* --- BIO --- */
-.bio {
-  font-size: 1rem;
-  color: #a0a0b0;
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-/* --- LINKS --- */
-.links {
+.avatar img {
   width: 100%;
-}
-
-/* --- BOTONES --- */
-.link {
+  height: 100%;
+  object-fit: cover;
   display: block;
-  width: 100%;
-  padding: 1rem;
-  margin-bottom: 1rem;
-
-  border: 1px solid #2a2a38;
-  border-radius: 0.5rem;
-
-  text-decoration: none;
-  color: #ffffff;
-
-  font-size: 1rem;
 }
 
-/* ========================================
-   RESPONSIVE: TABLET Y DESKTOP (768px+)
-   ======================================== */
-@media (min-width: 768px) {
+.avatar-initials {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #999;
+  user-select: none;
+}
 
-  .container {
-    max-width: 500px;
-  }
+.name {
+  font-size: clamp(2rem, 10vw, 2.75rem);
+  font-weight: 900;
+  color: #111111;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.75rem;
+}
 
-  .name {
-    font-size: 2.5rem;
-  }
+.bio {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #555555;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
 
-  .avatar {
-    width: 8rem;
-    height: 8rem;
-  }
+.bio .separator {
+  color: #999999;
+  margin: 0 0.2rem;
+}
 
-  .link {
-    transition: transform 0.2s ease;
-  }
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
-  .link:hover {
-    transform: scale(1.05);
-  }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0.6rem 1.15rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #111111;
+  text-decoration: none;
+  border: 2.5px solid #111111;
+  border-radius: 4px;
+  box-shadow: 3px 3px 0 #111111;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  white-space: nowrap;
+}
 
-  .bio {
-    max-width: 400px;
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #111111;
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #111111;
+}
+
+.btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.btn-pink   { background-color: #FF6BB5; }
+.btn-blue   { background-color: #5BC8F5; }
+.btn-orange { background-color: #F5A55B; }
+.btn-green  { background-color: #7EDB8F; }
+
+.divider {
+  height: 2.5px;
+  background-color: #111111;
+}
+
+.card-bottom {
+  padding: 1.25rem 1.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: #111111;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.social-link:hover {
+  transform: scale(1.2);
+}
+
+.social-link svg {
+  width: 22px;
+  height: 22px;
+}
+
+@media (max-width: 400px) {
+  .card-top {
+    padding: 1.5rem 1.25rem 1.5rem;
   }
+  .card-bottom {
+    padding: 1rem 1.25rem 1.25rem;
+  }
+  .btn {
+    font-size: 0.75rem;
+    padding: 0.55rem 0.9rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .card {
+    box-shadow: 9px 9px 0 #111111;
+  }
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
